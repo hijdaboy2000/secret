@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>❤️</title>
+  <style>
+    body {
+      background: black;
+      color: #ff4d6d;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      margin-left: 6px;
+      cursor: pointer;
+    }
+
+    pre {
+      font-size: 18px;
+      line-height: 1.2;
+      margin-top: 20px;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div id="lock">
+    <p>Enter passcode 💌</p>
+    <input type="password" id="passcode">
+    <button onclick="check()">Unlock</button>
+  </div>
+
+  <div id="content" style="display:none;">
+    <p id="message"></p>
+    <pre id="heart"></pre>
+  </div>
+</div>
+
+<script>
+  const PASSCODE = "bilalisthegoat";
+
+  const heartLines = [
+    "  **   **  ",
+    " **** **** ",
+    "***********",
+    " ********* ",
+    "  *******  ",
+    "   *****   ",
+    "    ***    ",
+    "     *     "
+  ];
+
+  function check() {
+    const input = document.getElementById("passcode").value;
+
+    if (input === PASSCODE) {
+      document.getElementById("lock").style.display = "none";
+      document.getElementById("content").style.display = "block";
+
+      document.getElementById("message").innerText =
+        "i love u bawli 💗 stay mine forever";
+
+      let i = 0;
+      const heart = document.getElementById("heart");
+
+      const interval = setInterval(() => {
+        if (i < heartLines.length) {
+          heart.textContent += heartLines[i] + "\n";
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 400);
+    } else {
+      alert("Wrong passcode ❌");
+    }
+  }
+</script>
+
+</body>
+</html>
